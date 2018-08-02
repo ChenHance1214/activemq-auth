@@ -8,3 +8,5 @@ commons-pool2-2.3.jar
 jedis-2.8.0.jar
 mysql-connector-java-6.0.6.jar
 这些依赖包
+
+activemq版本apache-activemq-5.15.4
