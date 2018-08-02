@@ -1,0 +1,21 @@
+## Eclipse
+.project
+.pydevproject
+.classpath
+.settings/
+.apt_generated/
+gen/
+bin/
+*.html
+*.pyc
+
+*/log
+*/*.log
+*/logging.log*
+*/test-output
+mvn*
+
+/target/
+#idea
+.idea/
+*.iml
