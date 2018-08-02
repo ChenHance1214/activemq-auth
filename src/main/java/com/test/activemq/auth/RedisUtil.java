@@ -11,10 +11,12 @@ public class RedisUtil {
 	private RedisUtil() {
 		JedisPoolConfig jedisPoolConfig = new JedisPoolConfig();
 		jedisPoolConfig.setMaxTotal(10);
-		jedisPool = new JedisPool(jedisPoolConfig, "192.168.1.128");
+		jedisPool = new JedisPool(jedisPoolConfig, ConfigUtils.getConfig("redis-ip"),
+				Integer.parseInt(ConfigUtils.getConfig("redis-port")));
+		// jedisPool = new JedisPool(jedisPoolConfig, "192.168.1.128");
 	}
 
-	public static RedisUtil getInstance(){
+	public static RedisUtil getInstance() {
 		return instance;
 	}
 
@@ -26,7 +28,7 @@ public class RedisUtil {
 			// 设置 redis 字符串数据 SET 10km blog.csdn.net/10km
 			jedis.set(key, value);
 			// 获取存储的数据并输出
-			System.out.println("redis 存储的内容key: " + key +" ,value: " + value);
+			System.out.println("redis 存储的内容key: " + key + " ,value: " + value);
 		} finally {
 			if (null != jedis)
 				jedis.close(); // 释放资源还给连接池
